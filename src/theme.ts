@@ -36,8 +36,8 @@ export const tokens = {
     500: '#8884d8',
   },
   background: {
-    light: '#2d2d34',
-    main: '#1f2026',
+    light: '#f8fafc',
+    main: '#0f172a',
   },
 };
 
@@ -60,7 +60,7 @@ export const themeSettings = {
       main: tokens.grey[500],
     },
     background: {
-      default: tokens.background.main,
+      default: tokens.background.light,
       light: tokens.background.light,
     },
   },

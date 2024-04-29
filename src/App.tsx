@@ -9,7 +9,8 @@ import { logOut, login } from './store/features/authSlice';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { themeSettings } from './theme';
 import { Box, CssBaseline } from '@mui/material';
-import { BrowserRouter, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);
@@ -41,17 +42,21 @@ function App() {
   // );
   return (
     <div className="app">
-      <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Box
             width="100%"
-            height="100%"
-            padding="0rem 2rem">
-            {loading ? <Outlet /> : <p>Loading</p>}
+            height="100%">
+            {!loading ? (
+              <>
+                <Navbar />
+                <Outlet />
+              </>
+            ) : (
+              <p>Loading</p>
+            )}
           </Box>
         </ThemeProvider>
-      </BrowserRouter>
     </div>
   );
 }
